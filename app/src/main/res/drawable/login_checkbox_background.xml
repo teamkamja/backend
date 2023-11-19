@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <shape>
+            <stroke android:width="1dp" android:color="#AEAEAE"/>
+
+        </shape>
+
+    </item>
+    <item android:state_checked="true" android:drawable="@color/checkedBox">
+        <solid android:color="#FFFFFF"/>
+        <shape>
+            <stroke android:width="1dp" android:color="#AEAEAE"/>
+        </shape>
+    </item>
+</selector>

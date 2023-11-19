@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_default_color_background"
+    >
+    <TextView
+        android:id="@+id/Title0"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="편의적 쿡북"
+        android:textSize="28sp"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:gravity="center"
+        android:layout_below="@+id/Title0"
+        android:textColor="@color/white"
+        android:text="편의적 레시피"
+        android:textSize="32sp"
+
+        android:layout_centerHorizontal="true"
+        />
+
+    <Spinner
+        android:id="@+id/sortSpiner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인기순"
+        android:entries="@array/조합정렬"
+        android:textSize="28sp"
+        android:textColor = "@color/black"
+        android:minHeight="48dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:layout_below="@+id/Title"
+        android:layout_alignParentEnd="true"
+        />
+    <ListView
+        android:id="@+id/recipeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sortSpiner"
+        />
+
+</RelativeLayout>
