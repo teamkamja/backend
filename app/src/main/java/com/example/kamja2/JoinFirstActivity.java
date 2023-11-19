@@ -51,7 +51,7 @@ public class JoinFirstActivity extends AppCompatActivity {
 
 
         dbHelpers = new DBHelpers(this);
-        //user = new User();
+        //user = new User();//
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
