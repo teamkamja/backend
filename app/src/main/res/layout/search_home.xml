@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_default_color_background"
+    android:orientation="vertical">
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnBackMenu"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:backgroundTint="@color/green"-->
+    <!--        android:layout_marginVertical="20dp"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:text="돌아가기" />-->
+
+    <TextView
+        android:id="@+id/txtFilter"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:layout_marginVertical="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="28sp"
+        android:text="예산" />
+
+    <TextView
+        android:id="@+id/txtCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000원"
+        android:textSize="30sp"
+        android:textColor="@color/gray"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lineCredit"/>
+    <LinearLayout
+        android:id="@+id/lineCredit"
+        android:layout_below="@+id/txtFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:layout_marginLeft="20dp">
+
+        <SeekBar
+            android:id="@+id/barCredit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/green"
+            android:thumbTint="@color/green"
+            android:min="0"
+            android:max="100" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_below="@+id/lineCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="28sp"
+        android:textColor="@color/gray"
+        android:text="카테고리" />
+
+    <TableLayout
+        android:id="@+id/tableCategory"
+        android:layout_below="@+id/txtCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp">
+        <TableRow
+            android:id="@+id/Row1"
+            android:layout_marginVertical="10dp">
+
+            <Button
+                android:id="@+id/btnKFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:text="한식"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:textColor="@color/Lightgray"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnCFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:text="중식"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+            <Button
+                android:id="@+id/btnYFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:text="양식"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+            <Button
+                android:id="@+id/btnJFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="일식"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+        </TableRow>
+
+        <TableRow android:id="@+id/Row2"
+            android:layout_marginVertical="10dp">
+
+            <Button
+                android:id="@+id/btnInstance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="즉석식품만"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+
+            <Button
+                android:id="@+id/btnCook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="요리하기"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+        </TableRow>
+
+        <TableRow android:id="@+id/Row3">
+
+            <Button
+                android:id="@+id/btnEasy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="간단한 조리"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+
+            <Button
+                android:id="@+id/btnEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="이벤트"
+                android:textSize="20sp"
+                android:textColor="@color/Lightgray" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/txtConvi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 주변 편의점 선택하기"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/gray"
+        android:layout_below="@+id/tableCategory"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnConvi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtConvi"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/gray"
+        android:backgroundTint="@color/white"
+        android:padding="5dp"
+        android:text="주변 편의점 찾기"
+        android:textColor="@color/Lightgray" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:backgroundTint="@color/green"
+        android:text="검색하기"
+        android:textSize="20sp"
+        android:layout_above="@+id/menuBar"
+        android:textColor="@color/white" />
+    <LinearLayout
+        android:id="@+id/menuBar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="5">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="홈"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="검색"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="찜"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="챗봇"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="나"/>
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>
