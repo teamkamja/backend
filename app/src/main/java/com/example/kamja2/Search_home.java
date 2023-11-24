@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 public class Search_home extends AppCompatActivity {
-    Button search,back,convi;
+    Button search,back,convi, btnSearch;
     SeekBar creditBar;
     TextView txtCredit;
     Button[] categoryButtons = new Button[8];
@@ -28,6 +28,7 @@ public class Search_home extends AppCompatActivity {
         creditBar = findViewById(R.id.barCredit);
         txtCredit = findViewById(R.id.txtCredit);
         convi = findViewById(R.id.btnConvi);
+        btnSearch = findViewById(R.id.btnSearch);
         int greenColor = ContextCompat.getColor(this, R.color.green);
         int whiteColor = ContextCompat.getColor(this, R.color.white);
         ColorStateList colorStateList = ColorStateList.valueOf(greenColor);
@@ -94,6 +95,14 @@ public class Search_home extends AppCompatActivity {
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search_home.this, SelectMap.class);
+                startActivity(intent);
+            }
         });
     }
 }

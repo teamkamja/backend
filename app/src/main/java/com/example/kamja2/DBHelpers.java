@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.kamja2.SecurityUtils;
-
+//회원 DB 저장
 public class DBHelpers extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "UserDatabase.db"; //DB 이름 설정
