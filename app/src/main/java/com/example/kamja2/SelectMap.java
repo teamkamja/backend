@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -70,7 +71,7 @@ public class SelectMap extends FragmentActivity implements OnMapReadyCallback {
         });
 
 
-       //위치 요청 권한 보내기 위해서
+        //위치 요청 권한 보내기 위해서
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 // Permission already granted
@@ -85,27 +86,7 @@ public class SelectMap extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
-//현재 위치 가져오기
-    //오류 나는거 아니고 권한이 거부될 수 있다고 말하는거임!!
-    private void getCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
-            fusedLocationProviderClient.getLastLocation().addOnCompleteListener(task -> {
-            if (task.isSuccessful() && task.getResult() != null) {
-                Location location = task.getResult();
-                LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(currentLatLng).title("My Location"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18f)); // 15f는 줌 레벨, 조절 가능
-
-            }
-        });
-    }
-        else {
-            // 권한이 없는 경우 권한 요청
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        }
-    }
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -115,22 +96,38 @@ public class SelectMap extends FragmentActivity implements OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+   //지도 시작
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-       // LatLng sydney = new LatLng(-34, 151);
+        // LatLng sydney = new LatLng(-34, 151);
         //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        getCurrentLocation();
+    }
 
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            getCurrentLocation();
+    //현재 위치 가져오기
+    //오류 나는거 아니고 권한이 거부될 수 있다고 말하는거임!!
+    private void getCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationProviderClient.getLastLocation().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Location location = task.getResult();
+                    if (location != null) {
+                        Log.d("Location", "Latitude: " + location.getLatitude() + ", Longitude: " + location.getLongitude());
+                        LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        mMap.addMarker(new MarkerOptions().position(currentLatLng).title("My Location"));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18f));
+                    } else {
+                        Log.e("LocationError", "Location is null");
+                    }
+                } else {
+                    Log.e("LocationError", "Failed to get location: " + task.getException());
+                }
+            });
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
-    }
-}
+    }}

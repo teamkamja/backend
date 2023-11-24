@@ -43,7 +43,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDOc4YMTIYZqVmf-Li84Bnk-s0koFUmvbc" />
+            android:value="" />
 
         <activity
             android:name=".SelectMap"
