@@ -15,7 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kamja2.User;
-
+// 로그인 페이지
 public class LoginActivity extends AppCompatActivity {
     private TextView find_id, find_pw, join;
     private EditText inputId, inputPassword;
